@@ -1,0 +1,85 @@
+#events-container
+  display: flex
+  flex-flow: wrap
+  justify-content: space-evenly
+
+  &.candidate-user
+    img
+      opacity: 0.7
+
+    .concert, .art-exposition, .sports
+      border: solid 2px $standout-color
+
+      img
+        opacity: 1.0
+
+  .event-panel
+    display: inline-grid
+    width: 18rem
+    padding: 16px
+    margin: .5rem
+    background-color: white
+    border-radius: 20px
+    border: solid 1px #eeeeee
+    box-shadow: 10px 10px 5px -6px grey
+    grid-template-areas: "starts starts ends ends" "loc loc loc loc" "img img img img" "tit tit tit tit" "aply . detail detail"
+    grid-template-columns: repeat(4, auto)
+    grid-template-rows: auto auto 3fr 1fr 50px
+    grid-gap: 4px
+
+    &.vip
+      border: solid 3px gold
+      background-color:  lighten(gold, 45%)
+
+    img
+      grid-area: img
+      margin: 1em 2%
+      width: 96%
+
+    h2
+      grid-area: tit
+      font-size: 1.5rem
+      text-align: center
+      padding: 0
+      margin: 0
+
+    .starts
+      grid-area: starts
+      font-size: .8rem
+      text-align: right
+
+      &::before
+        content: 'From '
+
+    .ends
+      grid-area: ends
+      font-size: .8rem
+
+      &::before
+        content: 'to '
+
+    .location
+      grid-area: loc
+      text-align: center
+
+      &::before
+        content: $location-icon
+        margin-right: 7px
+
+    button
+      grid-area: detail
+      margin-top: 10px
+
+    .applied
+      grid-area: aply
+      display: flex
+      align-items: center
+      justify-content: center
+      font-size: 1.2rem
+      font-weight: bold
+      color: green
+      padding: 0
+
+      &::before
+        content: '✔'
+        margin-right: .3rem

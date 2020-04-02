@@ -1,0 +1,48 @@
+@function unicode($str)
+  @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"")
+
+$low-res: 650px
+$high-res: 1024px
+$close-button-size: 1.8rem
+$button-color: #2185ec
+$standout-color: #2185ec
+$footer-back: #25588a
+$location-icon: unicode('1F30E')   // 🌎
+$vip-icon: unicode('1F451') // 👑
+$user-icon: unicode('1F464') // 👤
+
+@import 'header'
+@import 'dialog'
+@import 'events_container'
+@import 'details_dialog'
+@import 'log_dialog'
+@import 'alert_dialog'
+@import 'footer'
+
+html
+  box-sizing: border-box
+  font-size: 16px
+
+*, *:before, *:after
+  box-sizing: inherit
+
+body
+  margin: 0
+  padding: 0
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  overflow-x: hidden
+
+button
+  color: white
+  background-color: $button-color
+  border: none
+  text-align: center
+  border-radius: 0.5rem
+  padding: 0.5rem
+  cursor: pointer
+
+a
+  text-decoration: none
+
+.hidden
+  display: none !important

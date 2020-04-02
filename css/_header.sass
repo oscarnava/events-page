@@ -1,0 +1,109 @@
+header
+  display: grid
+  grid-template-areas: "usr usr out log join" "menu menu menu menu menu"
+  grid-template-columns: 1fr repeat(4, auto)
+  grid-template-rows: repeat(2, auto)
+  grid-gap: 4px
+  background-color: white
+  z-index: 5
+
+  @media only screen and (max-width: $low-res)
+    grid-template-areas: "usr usr usr usr usr" ". . out log join" "label menu menu menu menu"
+    grid-template-columns: auto 1fr repeat(2, auto) 1fr
+    grid-template-rows: repeat(3, auto)
+
+  @media only screen and (min-width: $high-res)
+    position: sticky
+    top: 0
+    padding-bottom: .5rem
+    margin: 0 0 1rem -1rem
+    box-shadow: 15px 15px 5px -6px #88888880
+    border-bottom: solid thin #1e66afb5
+
+  button
+    width: 4rem
+    margin: 1rem .5rem
+
+  #logout
+    grid-area: out
+    background-color: red
+
+  #loggedUser
+    grid-area: usr
+    font-size: 1.3rem
+    padding: .5rem 1rem
+    display: flex
+    align-items: center
+    justify-content: flex-end
+
+    &::before
+      content: $user-icon
+      margin-right: .7rem
+
+    &.vip::before
+      content: $vip-icon
+
+    @media only screen and (max-width: $low-res)
+      justify-content: center
+
+  #loginBtn
+    grid-area: log
+
+  #joinBtn
+    grid-area: join
+
+  .label
+    // grid-area: label
+    font-size: 1.2rem
+    font-weight: bold
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    margin: 0 1rem
+    padding: 0 .5rem
+    border-right: solid 2px #80808080
+    user-select: none
+
+    @media only screen and (max-width: $low-res)
+      width: 100%
+      justify-content: center
+      margin-bottom: .75rem
+
+  nav
+    grid-area: menu
+    display: flex
+    justify-content: center
+    align-items: baseline
+
+    @media only screen and (max-width: $low-res)
+      flex-direction: column
+
+  ul
+    display: flex
+    align-items: flex-end
+    justify-content: space-evenly
+    flex-flow: wrap
+    margin: 0 1rem 0 0
+    // background-color: #80808020
+    user-select: none
+
+  li
+    list-style: none
+    border-bottom: solid 2px #80808080
+    cursor: pointer
+    padding: 2px 7px
+    margin: 7px
+    text-align: center
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: left
+
+    &::before
+      content: ':::'
+      color: lightGrey
+      margin-right: .3rem
+
+    &::after
+      content: ':::'
+      color: lightGrey
+      margin-left: .3rem

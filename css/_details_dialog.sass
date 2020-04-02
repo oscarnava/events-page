@@ -1,0 +1,99 @@
+$twitter-color: #00a0fd
+$facebook-color: #365899
+
+#details-dialog
+
+  .container
+    display: grid
+    grid-template-areas: "head head head" "dates dates dates" "loc loc loc" "text text text" "msg msg msg" ". aply soc"
+    grid-template-columns: repeat(3, 1fr)
+    grid-template-rows: repeat(3, auto) 1fr auto auto
+    grid-gap: 4px
+
+    h2
+      grid-area: head
+      font-size: 2rem
+      text-align: center
+      margin: 0
+
+    img
+      grid-area: img
+      display: none
+
+    .applyBtn
+      grid-area: aply
+
+    .info
+      grid-area: text
+      margin: 1rem 0
+      overflow-y: auto
+
+      p
+        font-size: 1rem
+
+    .apply
+      grid-area: aply
+
+    .dates
+      grid-area: dates
+      text-align: center
+      font-size: 1.2rem
+
+      .ends::before
+        content: 'to '
+
+      @media only screen and (max-width: $low-res)
+        display: grid
+        grid-template-areas: "starts" "ends"
+        grid-template-columns: 1fr
+        grid-template-rows: auto auto
+
+        .starts
+          grid-area: starts
+
+        .ends
+          grid-area: ends
+
+    .location
+      grid-area: loc
+      text-align: center
+      font-size: 1.2rem
+
+      &::before
+        content: $location-icon
+        margin-right: 7px
+
+    .social
+      grid-area: soc
+      display: inline-flex
+      align-items: center
+      justify-content: space-evenly
+
+      i
+        font-size: 2rem
+        width: 3rem
+        height: 3rem
+        padding: .5rem
+        border-radius: 50%
+        display: inline-flex
+        align-items: center
+        justify-content: center
+
+      a.twitter
+        color: $twitter-color
+
+        i
+          background-color: lighten($twitter-color, 30%)
+
+      a.facebook
+        color: $facebook-color
+
+        i
+          background-color: lighten($facebook-color, 30%)
+
+    .message
+      grid-area: msg
+      font-size: 1.3rem
+      text-align: center
+      font-weight: bold
+      margin-bottom: .5rem
